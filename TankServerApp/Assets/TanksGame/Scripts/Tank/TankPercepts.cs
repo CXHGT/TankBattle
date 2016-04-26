@@ -6,7 +6,7 @@ public class TankPercepts : MonoBehaviour
 {
     public Dictionary<int, TankTacticalInfo> reconInfo = new Dictionary<int, TankTacticalInfo>();
 
-    public float VisionRadius = 300f;
+    public float VisionRadius = 30f;
 
     [SerializeField]
     private Transform eyePoint;

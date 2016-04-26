@@ -688,7 +688,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint1
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1255,7 +1255,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint4
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3523,16 +3523,19 @@ MonoBehaviour:
   m_MessageText: {fileID: 102963701}
   m_RoundText: {fileID: 772873069}
   m_TankPrefab: {fileID: 173472, guid: 756d3a6506f2f8241b4e8badde68567a, type: 2}
-  m_SpawnPoints:
-  - {fileID: 194018016}
-  - {fileID: 2083660209}
-  - {fileID: 980480511}
-  - {fileID: 487678815}
-  m_PlayerColors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0.5862067, b: 1, a: 0}
-  - {r: 0.07028407, g: 0.9264706, b: 0, a: 0}
-  - {r: 1, g: 0.51724136, b: 0, a: 0}
+  m_Spawnpoints:
+  - spawnTransform: {fileID: 194018016}
+    spawnColor: {r: 1, g: 0, b: 0, a: 0}
+    inUse: 0
+  - spawnTransform: {fileID: 2083660209}
+    spawnColor: {r: 0, g: 0.58431375, b: 1, a: 0}
+    inUse: 0
+  - spawnTransform: {fileID: 980480511}
+    spawnColor: {r: 0.07058824, g: 0.92549026, b: 0, a: 0}
+    inUse: 0
+  - spawnTransform: {fileID: 487678815}
+    spawnColor: {r: 1, g: 0.5176471, b: 0, a: 0}
+    inUse: 0
   m_MinimumPlayerCount: 2
   m_MaximumPlayerCount: 4
 --- !u!4 &1304999366
@@ -7611,7 +7614,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint2
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
