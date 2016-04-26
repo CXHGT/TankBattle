@@ -37,11 +37,7 @@ namespace UnityGame.Tanks
         private bool m_RoundInProgress = false;              // Used to determine whether a match is currently occurring.
         private bool m_NewGame = true;
 
-        [SerializeField]
-        private Transform[] m_SpawnPoints;
-
-        [SerializeField]
-        private Color[] m_PlayerColors;
+        public List<Spawnpoint> m_Spawnpoints;
 
         public int m_MinimumPlayerCount = 2;
         public int m_ActivePlayerCount
@@ -64,6 +60,20 @@ namespace UnityGame.Tanks
             StartCoroutine (GameLoop ());
         }
 
+        // HACK: a more dynamic spawning system would be good!
+        public Spawnpoint GetBestSpawnpoint()
+        {
+            Spawnpoint spawnWish = m_Spawnpoints[0];
+
+            foreach(var spawn in m_Spawnpoints)
+            {
+                if (!spawn.inUse)
+                    return spawn;
+            }
+
+            return spawnWish;
+        }
+
         public TankPlayerController AddPlayer()
         {
             // max player count reached?
@@ -82,8 +92,12 @@ namespace UnityGame.Tanks
             newPlayerController.m_Instance = newPlayerController.Pawn;
             newPlayerController.isActive = true;
             newPlayerController.pid = m_PlayerControllers.Count - 1;
-            newPlayerController.m_PlayerColor = m_PlayerColors[m_ActivePlayerCount - 1];
-            newPlayerController.m_SpawnPoint = m_SpawnPoints[m_ActivePlayerCount - 1];
+
+            Spawnpoint targetSpawn = GetBestSpawnpoint();
+
+            newPlayerController.m_PlayerColor = targetSpawn.spawnColor; ;
+            newPlayerController.m_SpawnPoint = targetSpawn;
+            targetSpawn.inUse = true;
 
             newPlayerController.Setup();
 
@@ -93,6 +107,7 @@ namespace UnityGame.Tanks
         {
             controller.Kill();
             m_CameraControl.m_Targets.Remove(controller.m_Instance.transform);
+            controller.m_SpawnPoint.inUse = false;
             Destroy(controller.m_Instance, 10.0f);
         }
 

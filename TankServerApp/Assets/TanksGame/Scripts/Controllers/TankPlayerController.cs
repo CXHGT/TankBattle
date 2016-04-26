@@ -13,7 +13,7 @@ public class TankPlayerController : PlayerController
     // different phases of the game.
 
     public Color m_PlayerColor;                             // This is the color this tank will be tinted.
-    public Transform m_SpawnPoint;                          // The position and direction the tank will have when it spawns.
+    public Spawnpoint m_SpawnPoint;                          // The position and direction the tank will have when it spawns.
     [HideInInspector]
     public string m_ColoredPlayerText;    // A string that represents the player with their number colored to match their tank.
     [HideInInspector]
@@ -86,8 +86,8 @@ public class TankPlayerController : PlayerController
     // Used at the start of each round to put the tank into it's default state.
     public void Reset()
     {
-        m_Instance.transform.position = m_SpawnPoint.position;
-        m_Instance.transform.rotation = m_SpawnPoint.rotation;
+        m_Instance.transform.position = m_SpawnPoint.spawnTransform.position;
+        m_Instance.transform.rotation = m_SpawnPoint.spawnTransform.rotation;
         m_Instance.GetComponentInChildren<CannonMovement>().cannon.transform.localRotation = Quaternion.identity;   // HACK
 
         m_Instance.SetActive(false);
