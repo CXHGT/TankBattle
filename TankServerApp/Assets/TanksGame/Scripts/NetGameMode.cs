@@ -151,19 +151,8 @@ public class NetGameMode : MonoBehaviour
             return null;
         }
 
+        // set as active to mark as being in play
         netPlayer.playerController.isActive = true;
-
-        GameObject newPawn = gameManager.SpawnSingleTank();
-        netPlayer.playerController.Pawn = newPawn;
-        netPlayer.playerController.PawnMove = newPawn.GetComponent<TankMovement>();
-
-        var evilDowncasting = netPlayer.playerController as TankPlayerController;
-        evilDowncasting.m_Instance = newPawn;
-        evilDowncasting.Setup();
-
-        evilDowncasting.TankGun = newPawn.GetComponent<CannonMovement>();
-        evilDowncasting.TankFire = newPawn.GetComponent<TankShooting>();
-        evilDowncasting.TankHealth = newPawn.GetComponent<TankHealth>();
 
         return netPlayer.playerController as TankPlayerController;
     }

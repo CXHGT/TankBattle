@@ -105,8 +105,6 @@ namespace UnityGame.Tanks
             _velocity = (transform.position - prevPosition) / Time.deltaTime;
             prevPosition = transform.position;
             currentTerrain = GetTerrain();
-
-            Debug.Log(currentTerrain);
         }
         private void OnDisable()
         {

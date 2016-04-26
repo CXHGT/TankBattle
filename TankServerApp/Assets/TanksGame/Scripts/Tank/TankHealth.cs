@@ -59,6 +59,12 @@ namespace UnityGame.Tanks
             // Update the health slider's value and color.
             SetHealthUI();
         }
+        private void OnDestroy()
+        {
+            // clean up any children instantiated
+            if(m_ExplosionParticles != null)
+                Destroy(m_ExplosionParticles.gameObject);
+        }
 
 
         public void TakeDamage (float amount)

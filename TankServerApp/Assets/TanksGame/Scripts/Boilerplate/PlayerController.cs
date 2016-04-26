@@ -3,6 +3,7 @@
 public class PlayerController
 {
     public int pid;
+    public int team;
     public bool isActive;
 
     public GameObject Pawn;
