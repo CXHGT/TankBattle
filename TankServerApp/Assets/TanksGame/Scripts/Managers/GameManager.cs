@@ -95,7 +95,7 @@ namespace UnityGame.Tanks
 
             Spawnpoint targetSpawn = GetBestSpawnpoint();
 
-            newPlayerController.m_PlayerColor = targetSpawn.spawnColor; ;
+            newPlayerController.m_PlayerColor = targetSpawn.spawnColor;
             newPlayerController.m_SpawnPoint = targetSpawn;
             targetSpawn.inUse = true;
 

@@ -70,6 +70,7 @@ namespace UnityGame.Tanks
             // Reset the launch force.  This is a precaution in case of missing button events.
             m_CurrentLaunchForce = m_MinLaunchForce;
 
+            // Flag the event, asking for the fire event to be broadcasted at the next available opportunity.
             m_FireEvent = true;
         }
 
@@ -135,7 +136,6 @@ namespace UnityGame.Tanks
         private void FixedUpdate()
         {
             BroadcastEvents();
-            //Debug.Log(m_PlayerNumber + "::" + m_FireTransform.parent.forward);
         }
     }
 }
