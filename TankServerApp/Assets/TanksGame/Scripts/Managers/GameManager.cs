@@ -379,7 +379,7 @@ namespace UnityGame.Tanks
                 m_CurrentPlayerControllers[i].DisableControl();
             }
         }
-        private void KillAllTanks()
+        public void KillAllTanks()
         {
             for (int i = 0; i < m_CurrentPlayerControllers.Count; i++)
             {

@@ -34,7 +34,10 @@ public class TankPlayerController : PlayerController
         m_Shooting = m_Instance.GetComponent<TankShooting>();
         m_Percepts = m_Instance.GetComponent<TankPercepts>();
         m_Health = m_Instance.GetComponent<TankHealth>();
-        m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
+
+        Color iconColor = m_PlayerColor;
+        iconColor.a = 1;
+        m_Instance.GetComponentInChildren<TankHUD>().PlayerIcon.color = iconColor;
 
         // Set the player numbers to be consistent across the scripts.
         m_Movement.m_PlayerNumber = pid;
@@ -62,8 +65,6 @@ public class TankPlayerController : PlayerController
     {
         m_Movement.enabled = false;
         m_Shooting.enabled = false;
-
-        m_CanvasGameObject.SetActive(false);
     }
 
 
@@ -72,8 +73,6 @@ public class TankPlayerController : PlayerController
     {
         m_Movement.enabled = true;
         m_Shooting.enabled = true;
-
-        m_CanvasGameObject.SetActive(true);
     }
 
     // Used to force a stalemate when a round has gone on too long.

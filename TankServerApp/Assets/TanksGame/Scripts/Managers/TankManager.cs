@@ -33,6 +33,10 @@ namespace UnityGame.Tanks
             m_Percepts = m_Instance.GetComponent<TankPercepts> ();
 
             m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas> ().gameObject;
+            m_CanvasGameObject.GetComponent<TankHUD>().PlayerIcon.color = m_PlayerColor;
+
+            Debug.Log(m_CanvasGameObject.GetComponent<TankHUD>().PlayerIcon.color);
+
 
             // Set the player numbers to be consistent across the scripts.
             m_Movement.m_PlayerNumber = m_PlayerNumber;
